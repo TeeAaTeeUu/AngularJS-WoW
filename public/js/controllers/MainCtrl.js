@@ -4,7 +4,7 @@ angular.module('MainCtrl', []).controller('MainController', function($http, $sco
 
 	$scope.search = function(itemID) {
 		if (itemID) {
-			$http.jsonp('http://eu.battle.net/api/wow/item/18803?jsonp=JSON_CALLBACK').success( function(data, status, headers, config) {
+			$http.jsonp('http://eu.battle.net/api/wow/item/' + itemID + '?jsonp=JSON_CALLBACK').success( function(data, status, headers, config) {
         		$scope.result = data;
     		})
 		} else {
