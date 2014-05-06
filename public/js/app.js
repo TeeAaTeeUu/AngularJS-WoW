@@ -1,1 +1,1 @@
-angular.module('AngularJS-WoW', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService']);
+angular.module('AngularJS-WoW', ['ngRoute', 'appRoutes', 'MainCtrl', 'MainService', 'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService'])
