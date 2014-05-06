@@ -1,1 +1,8 @@
-body { padding-top:30px; }
+body {
+	padding-top:30px;
+}
+
+.col-centered{
+    margin: 0 auto;
+    float: none;
+}
