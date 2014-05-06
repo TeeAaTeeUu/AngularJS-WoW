@@ -2,4 +2,14 @@
 	<h1>Home Page 4 Life</h1>
 
 	<p>{{ tagline }}</p>
+
+	<form>
+		<input placeholder="put it here" class="input-xlarge search-query" type="text" ng-model="itemID">
+		<button class="btn btn-primary" ng-click="search(itemID)">Search</button>
+	</form>
+	
+	<p ng-show="itemID">{{ itemID }}</p>
+
+	<p ng-show="result">{{ result }}</p>
+
 </div>
