@@ -18,7 +18,6 @@ Install
 ```
 git clone {{ url }}
 cd AngularJS-WoW
-bower install
 npm install
-node server.js
+npm start
 ```
