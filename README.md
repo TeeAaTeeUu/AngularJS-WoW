@@ -8,7 +8,7 @@ Here will be single-page-app that's going to use public APIs from Blizzard, WoWH
 Install
 =============
 
-''''
+```
 bower install
 npm install
-''''
+```
