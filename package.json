@@ -1,10 +1,13 @@
 {
-  "name": "AngularJS-WoW",
+  "name": "RandomQuote",
   "main": "server.js",
   "dependencies": {
     "express": "latest",
-    "bower": "latest"
-  },
+    "request": "latest",
+    "bower": "latest",
+    "mongoose" : "latest",
+    "mongoose-random": "latest"
+    },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
   }

@@ -1,29 +1,29 @@
 <div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
+	<h1>AngularJS-WoW</h1>
 
 	<p>{{ tagline }}</p>
 
-   <div class="row">
-      <div class="col-lg-4 col-centered">
-        <div class="input-group">
-         <span class="input-group-addon">itemID</span>
-         <input type="text" class="form-control" placeholder="e.g. 64674" ng-model="itemID">
-         <span class="input-group-btn">
-           <button class="btn btn-primary" type="button" ng-click="search(itemID)">Search!</button>
-           <button class="btn btn-danger" ng-click="clearSearch()">Clear</button>
-        </span>
-     </div><!-- /input-group -->
-  </div><!-- /.col-lg-4 -->
-</div><!-- /.row -->
+	<form>
+		<div class="row">
+			<div class="col-lg-4 col-centered">
+				<div class="input-group">
+					<span class="input-group-addon">itemID</span>
+					<input type="text" class="form-control" placeholder="e.g. 64674" ng-model="itemID">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-primary" type="button" ng-click="search(itemID)">Search!</button>
+						<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
+					</span>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-4 -->
+		</div><!-- /.row -->
+	</form>
 
-</form>
+	<div ng-show="result">
 
-<div ng-show="result">
+		<p>{{ result.name }}<p>
 
- <p>{{ result.name }}<p>
+			<button class="btn btn-danger" ng-click="clearSearch()">Clear</button>
 
-    <button class="btn btn-danger" ng-click="clearSearch()">Clear</button>
-
- </div>
+	</div>
 
 </div>
