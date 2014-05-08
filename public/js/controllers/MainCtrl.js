@@ -2,20 +2,24 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Mai
 
 	$scope.tagline = 'Here be stuff';
 
-	$scope.search = function(itemID) {
-		if (itemID) {
-			Main.get(itemID)
-			.success( function(data) {
-        		$scope.result = data;
-    		})
+	$scope.search = function(name) {
+		if (name) {
+			Main.getChar("eu", "Mazrigos", name)
+				.success( function(data) {
+        			$scope.char = data;
+    			});
+    		Main.getRaces()
+    			.success (function(data) {
+    				$scope.races = data;
+    			})
 		} else {
-			$scope.result = {"name": "You didn't give me anything. Why?"};
+			$scope.char = {"name": "You didn't give me anything. Why?"};
 		};
 	};
 
 	$scope.clearSearch = function() {
-		$scope.result = null;
-		$scope.itemID = null;
+		$scope.char = null;
+		$scope.name = null;
 	}
 
 });
