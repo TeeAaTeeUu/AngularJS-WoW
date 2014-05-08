@@ -20,7 +20,8 @@
 
 	<div ng-show="char">
 
-		<p>Our <b>Level {{ char.level }}</b> Champion, {{races}} from named </b> {{ char.name }}</b> from realm <b>{{ char.realm }}</b><p>
+		<p><img src="http://eu.battle.net/static-render/eu/{{ char.thumbnail }}">Our <b>Level {{ char.level }}</b> Champion, named
+		<b>{{ char.name }}</b> from realm <b>{{ char.realm }}</b><p>
 
 			<button class="btn btn-danger" ng-click="clearSearch()">Clear</button>
 
