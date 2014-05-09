@@ -17,22 +17,23 @@
 	<!-- ANGULAR CUSTOM -->
 	<script src="js/controllers/MainCtrl.js"></script>
 	<script src="js/services/MainService.js"></script>
-	<script src="js/controllers/LocalCtrl.js"></script>
-	<script src="js/services/LocalService.js"></script>
+	<script src="js/controllers/GlobalCtrl.js"></script>
+	<script src="js/services/GlobalService.js"></script>
+	<script src="js/appFilters.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
 </head>
-<body data-ng-app="AngularJS-WoW">
+<body data-ng-app="AngularJS-WoW" data-ng-controller="GlobalController">
 	<div class="container">
-
 		<!-- HEADER -->
-		<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-inverse" data-ng-show="char.name">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">AngularJS-WoW</a>
+				<a href="/"><img ng-src="{{ char.thumbnail }}"></a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li><a href="/local">Local</a></li>
 			</ul>
+			<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
 		</nav>
 
 		<!-- ANGULAR DYNAMIC CONTENT -->

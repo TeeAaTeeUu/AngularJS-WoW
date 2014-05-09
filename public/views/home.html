@@ -1,30 +1,39 @@
 <div class="jumbotron text-center">
-	<h1>AngularJS-WoW</h1>
+	<div data-ng-hide="char.name">
+		<h1>AngularJS-WoW</h1>
 
-	<p>{{ tagline }}</p>
+		<p>{{ tagline }}</p>
 
-	<form>
-		<div class="row">
-			<div class="col-lg-4 col-centered">
-				<div class="input-group">
-					<span class="input-group-addon">itemID</span>
-					<input type="text" class="form-control" placeholder="e.g. 64674" ng-model="itemID">
-					<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary" type="button" ng-click="search(itemID)">Search!</button>
-						<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
-					</span>
-				</div><!-- /input-group -->
-			</div><!-- /.col-lg-4 -->
-		</div><!-- /.row -->
-	</form>
+		<form>
+			<div class="row">
+				<div class="col-lg-4 col-centered">
+					<div class="input-group">
+						<span class="input-group-addon">itemID</span>
+						<input type="text" class="form-control" placeholder="e.g. 64674" ng-model="itemID">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary" type="button" ng-click="search(itemID)">Search!</button>
+							<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
+						</span>
+					</div><!-- /input-group -->
+				</div><!-- /.col-lg-4 -->
+			</div><!-- /.row -->
+		</form>
+	</div>
 
-	<div ng-show="char">
+	<div data-ng-show="char">
 
-		<p><img src="http://eu.battle.net/static-render/eu/{{ char.thumbnail }}">Our <b>Level {{ char.level }}</b> Champion, named
-		<b>{{ char.name }}</b> from realm <b>{{ char.realm }}</b><p>
+		<p>Our <b>Level {{ char.level }}</b> Champion,<b data-ng-show="char.raceName">{{char.raceName}}</b> named
+			<b>{{ char.name }}</b> <span data-ng-show="char.side">from <b>{{char.side | capitalize}}</b></span> in realm <b>{{ char.realm }}</b><span data-ng-show="char.className"> is <b>{{char.className}}</b> and uses <b>{{char.powerType}}</b> as {{char.sexHas}} power</span>. This {{char.sex}} played last time at <b>{{char.lastModified | date:'MMMM d, y'}}</b> at <b>{{char.lastModified | date:'shortTime' | lowercase}}</b> (and that was <b>{{char.lastModified | date:'EEEE' | lowercase}}</b> by the way).
+		</p>
 
-			<button class="btn btn-danger" ng-click="clearSearch()">Clear</button>
+		<button type="submit" class="btn btn-primary" type="button" data-ng-hide="char.raceName" data-ng-click="getRace(char.race)">Show Race</button>
 
+		<button type="submit" class="btn btn-primary" type="button" data-ng-hide="char.className" data-ng-click="getClass(char.class)">Show class</button>
+
+	</div>
+
+	<div data-ng-show="error">
+			<p>{{ error }}</p>
 	</div>
 
 </div>
