@@ -4,6 +4,8 @@ angular.module('AngularJS-WoW',
 	'appRoutes',
 	'MainCtrl',
 	'MainService',
+	'ItemsCtrl',
+	'ItemsService',
 	'GlobalCtrl',
 	'GlobalService'
 	]

@@ -19,6 +19,8 @@
 	<script src="js/services/MainService.js"></script>
 	<script src="js/controllers/GlobalCtrl.js"></script>
 	<script src="js/services/GlobalService.js"></script>
+	<script src="js/controllers/ItemsCtrl.js"></script>
+	<script src="js/services/ItemsService.js"></script>
 	<script src="js/appFilters.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
@@ -31,7 +33,7 @@
 				<a href="/"><img ng-src="{{ char.thumbnail }}"></a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="/local">Local</a></li>
+				<li><a href="/items">items</a></li>
 			</ul>
 			<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
 		</nav>

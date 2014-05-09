@@ -8,10 +8,10 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'MainController'
 		})
 
-		// .when('/local', {
-		// 	templateUrl: 'views/geek.html',
-		// 	controller: 'LocalController'
-		// });
+		.when('/items', {
+		 	templateUrl: 'views/items.html',
+		 	controller: 'ItemsController'
+		});
 
 	$locationProvider.html5Mode(true);
 
