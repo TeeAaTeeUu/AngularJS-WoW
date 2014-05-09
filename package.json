@@ -4,7 +4,7 @@
   "dependencies": {
     "express": "latest",
     "request": "latest",
-    "bower": "latest",
+    "bower": "latest"
     },
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
