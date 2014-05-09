@@ -1,11 +1,16 @@
 angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, Global) {
 
 	$scope.search = function(name) {
+		$scope.region = "eu";
+		$scope.realm = "Mazrigos";
 		if (name) {
-			Global.getChar("eu", "Mazrigos", name)
+			Global.getChar($scope.region, $scope.realm, name)
 				.success( function(data) {
+					$scope.staticUrl = "http://" + $scope.region + ".battle.net/static-render/" + $scope.region + "/";
+					$scope.mediaUrl = "http://" + $scope.region + ".media.blizzard.com/wow/icons/56/";
+
         			$scope.char = data;
-        			$scope.char.thumbnail = 'http://eu.battle.net/static-render/eu/' + $scope.char.thumbnail;
+        			$scope.char.thumbnail = $scope.staticUrl + $scope.char.thumbnail;
         			$scope.error = null;
 
         			if(angular.equals($scope.char.gender, 0)) {

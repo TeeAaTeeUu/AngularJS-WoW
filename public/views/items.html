@@ -1,1 +1,12 @@
-testing
+<p>{{char.sexHas | capitalize}} average item Level is <b>{{ char.averageItemLevelEquipped }}</b> / {{ char.averageItemLevelEquipped }}.</p>
+
+<div>
+	<div data-ng-repeat="item in items" ng-click="showItem(item.id)">
+		<div>
+			<img data-ng-src="{{mediaUrl}}{{item.icon}}.jpg" /> {{item.name}} ({{item.itemLevel}} ilvl)
+		</div>
+		<div data-ng-show="show.{{item.id}}">
+			<a href="http://www.wowhead.com/item={{item.id}}">More info here!</a>
+		</div>
+	</div>
+</div>

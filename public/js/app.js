@@ -6,6 +6,8 @@ angular.module('AngularJS-WoW',
 	'MainService',
 	'ItemsCtrl',
 	'ItemsService',
+	'PetsCtrl',
+	'PetsService',
 	'GlobalCtrl',
 	'GlobalService'
 	]
