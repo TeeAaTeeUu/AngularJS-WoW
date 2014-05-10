@@ -1,6 +1,8 @@
 angular.module('MainCtrl', []).controller('MainController', function($scope, Main) {
 
-	$scope.tagline = 'Here be stuff';
+	$scope.tagline = "Testing how AngularJS works with";
+	$scope.taglineName = "WoW Community Web API";
+	$scope.taglineUrl = "https://github.com/Blizzard/api-wow-docs";
 
 	$scope.getRace = function(raceID) {
 		Main.getRaces()

@@ -1,7 +1,7 @@
 angular.module('ItemsCtrl', []).controller('ItemsController', function($scope, Items) {
 
 	$scope.items = {};
-	$scope.show = {};
+	$scope.showItems = {};
 
 	$scope.getItems = function() {
 		Items.getItems("eu", "Mazrigos", $scope.char.name)
@@ -14,12 +14,11 @@ angular.module('ItemsCtrl', []).controller('ItemsController', function($scope, I
 			$scope.char.averageItemLevelEquipped = data.items.averageItemLevelEquipped;
 			$scope.char.averageItemLevel = data.items.averageItemLevel;
 		});
-	}
+	};
 
 	$scope.getItems();
 
 	$scope.showItem = function(itemID) {
-		$scope.show[itemID] = true;
-		console.log(itemID + "testi");
-	}
+		$scope.showItems[itemID] = true;
+	};
 });

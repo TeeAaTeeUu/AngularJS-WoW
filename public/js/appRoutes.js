@@ -16,6 +16,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/pets', {
 			templateUrl: 'views/pets.html',
 			controller: 'PetsController'
+		})
+
+		.when('/mounts', {
+			templateUrl: 'views/mounts.html',
+			controller: 'MountsController'
 		});
 
 	$locationProvider.html5Mode(true);

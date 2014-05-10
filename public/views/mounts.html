@@ -1,0 +1,13 @@
+<p>{{char.name}} has <b>{{ mounts.numCollected }}</b> mounts out of {{ mounts.numNotCollected }} available.</p>
+
+<div>
+	<div data-ng-repeat="mount in mounts.collected" ng-click="showMount(mount.creatureId)">
+		<div>
+			<img data-ng-src="{{mediaUrl}}{{mount.icon}}.jpg" /> {{mount.name}} ({{mount.stats.level}} lvl)
+		</div>
+		<div data-ng-show="showMounts.{{mount.creatureId}}">
+			<p>This mount can{{ mount.isFlyingCant }} fly.</p>
+			<a href="http://www.wowhead.com/item={{mount.itemId}}">More info here!</a>
+		</div>
+	</div>
+</div>

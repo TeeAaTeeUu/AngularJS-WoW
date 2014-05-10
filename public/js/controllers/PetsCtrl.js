@@ -8,11 +8,11 @@ angular.module('PetsCtrl', []).controller('PetsController', function($scope, Pet
 		.success( function(data) {
 			$scope.pets = data.pets;
 		});
-	}
+	};
 
 	$scope.getPets();
 
 	$scope.showPet = function(petID) {
 		$scope.showPets[petID] = true;
-	}
+	};
 });

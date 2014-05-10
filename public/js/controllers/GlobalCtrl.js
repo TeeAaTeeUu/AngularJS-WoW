@@ -1,4 +1,4 @@
-angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, Global) {
+angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, $location, Global) {
 
 	$scope.regions = [
 	    {name:'US', value:'us'},
@@ -57,5 +57,7 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		$scope.show.region = true;
 		$scope.show.realm = false;
 		$scope.show.char = false;
+
+		$location.path("/");
 	}
 });

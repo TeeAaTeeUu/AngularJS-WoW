@@ -9,6 +9,8 @@ angular.module('AngularJS-WoW',
 	'ItemsService',
 	'PetsCtrl',
 	'PetsService',
+	'MountsCtrl',
+	'MountsService',
 	'GlobalCtrl',
 	'GlobalService'
 	]
