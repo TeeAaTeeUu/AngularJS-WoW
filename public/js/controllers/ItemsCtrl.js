@@ -4,7 +4,7 @@ angular.module('ItemsCtrl', []).controller('ItemsController', function($scope, I
 	$scope.showItems = {};
 
 	$scope.getItems = function() {
-		Items.getItems("eu", "Mazrigos", $scope.char.name)
+		Items.getItems($scope.region.value, $scope.realm, $scope.name)
 		.success( function(data) {
 			angular.forEach(data.items, function(value, key){
 				if(!(angular.equals(key, "averageItemLevel") || angular.equals(key, "averageItemLevelEquipped"))) {

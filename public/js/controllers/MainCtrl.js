@@ -5,7 +5,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Mai
 	$scope.taglineUrl = "https://github.com/Blizzard/api-wow-docs";
 
 	$scope.getRace = function(raceID) {
-		Main.getRaces()
+		Main.getRaces($scope.region)
 				.success( function(data) {
         			var races = data.races;
         			for (var i = 0; i < races.length; i++) {
@@ -19,7 +19,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Mai
 	}
 
 	$scope.getClass = function(classID) {
-		Main.getClasses()
+		Main.getClasses($scope.region)
 				.success( function(data) {
         			var classes = data.classes;
         			for (var i = 0; i < classes.length; i++) {

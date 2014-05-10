@@ -27,8 +27,9 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 	};
 
 	$scope.search = function(name) {
+		$scope.name = name;
 		if (name) {
-			Global.getChar($scope.region.value, $scope.realm, name)
+			Global.getChar($scope.region.value, $scope.realm, $scope.name)
 				.success( function(data) {
 					$scope.staticUrl = "http://" + $scope.region.value + ".battle.net/static-render/" + $scope.region.value + "/";
 					$scope.mediaUrl = "http://" + $scope.region.value + ".media.blizzard.com/wow/icons/56/";

@@ -4,7 +4,7 @@ angular.module('PetsCtrl', []).controller('PetsController', function($scope, Pet
 	$scope.showPets = {};
 
 	$scope.getPets = function() {
-		Pets.getPets("eu", "Mazrigos", $scope.char.name)
+		Pets.getPets($scope.region.value, $scope.realm, $scope.name)
 		.success( function(data) {
 			$scope.pets = data.pets;
 		});

@@ -6,7 +6,7 @@ angular.module('MountsCtrl', []).controller('MountsController', function($scope,
 	$scope.cant = "'t";
 
 	$scope.getMounts = function() {
-		Mounts.getMounts("eu", "Mazrigos", $scope.char.name)
+		Mounts.getMounts($scope.region.value, $scope.realm, $scope.name)
 		.success( function(data) {
 			$scope.mounts = data.mounts;
 
