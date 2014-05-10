@@ -1,6 +1,7 @@
 angular.module('AngularJS-WoW',
 	['ngRoute',
 	'MyFilters',
+	'MyDirectives',
 	'appRoutes',
 	'MainCtrl',
 	'MainService',

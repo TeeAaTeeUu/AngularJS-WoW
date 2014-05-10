@@ -3,15 +3,35 @@
 
 	<p>{{ tagline }}</p>
 
-	<form>
-		<div class="input-group">
-		<span class="input-group-addon">Character</span>
-			<input type="text" class="form-control" placeholder="Andruk" ng-model="itemID">
-			<span class="input-group-btn">
-				<button type="submit" class="btn btn-primary" type="button" ng-click="search(itemID)">Search!</button>
-				<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
-			</span>
-		</div><!-- /input-group -->
+	<form ng-show="show.region">
+		<span>Select your region</span>
+		<select ng-model="region" ng-options="region.name for region in regions"></select>
+		<button type="submit" class="btn btn-primary" type="button" ng-click="selectregion(region); focus.realm=true">Select region</button>
+		<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
+	</form>
+	<form data-ng-show="show.realm">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">Realm</span>
+				<input type="text" class="form-control" placeholder="Mazrigos" ng-model="realm" focus-me="focus.realm">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary" type="button" ng-click="selectRealm(realm); focus.name=true">Select realm</button>
+					<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
+				</span>
+			</div><!-- /input-group -->
+		</div>
+	</form>
+	<form data-ng-show="show.char">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">Character</span>
+				<input type="text" class="form-control" placeholder="Tekrajas" ng-model="name" focus-me="focus.name">
+				<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary" type="button" ng-click="search(name)">Search!</button>
+					<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
+				</span>
+			</div><!-- /input-group -->
+		</div>
 	</form>
 </div>
 

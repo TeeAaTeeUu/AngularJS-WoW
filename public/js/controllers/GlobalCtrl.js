@@ -1,13 +1,37 @@
 angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, Global) {
 
+	$scope.regions = [
+	    {name:'US', value:'us'},
+    	{name:'Europe', value:'eu'},
+    	{name:'Korea', value:'kr'},
+    	{name:'Taiwan', value:'tw'}
+	];
+
+	$scope.focus = {};
+
+	$scope.show = {};
+	$scope.show.region = true;
+
+	$scope.region = $scope.regions[1];
+
+	$scope.selectregion = function(region) {
+		$scope.region = region;
+		$scope.show.region = false;
+		$scope.show.realm = true;
+	};
+
+	$scope.selectRealm = function(realm) {
+		$scope.realm = realm;
+		$scope.show.realm = false;
+		$scope.show.char = true;
+	};
+
 	$scope.search = function(name) {
-		$scope.region = "eu";
-		$scope.realm = "Mazrigos";
 		if (name) {
-			Global.getChar($scope.region, $scope.realm, name)
+			Global.getChar($scope.region.value, $scope.realm, name)
 				.success( function(data) {
-					$scope.staticUrl = "http://" + $scope.region + ".battle.net/static-render/" + $scope.region + "/";
-					$scope.mediaUrl = "http://" + $scope.region + ".media.blizzard.com/wow/icons/56/";
+					$scope.staticUrl = "http://" + $scope.region.value + ".battle.net/static-render/" + $scope.region.value + "/";
+					$scope.mediaUrl = "http://" + $scope.region.value + ".media.blizzard.com/wow/icons/56/";
 
         			$scope.char = data;
         			$scope.char.thumbnail = $scope.staticUrl + $scope.char.thumbnail;
@@ -30,5 +54,8 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		$scope.char = null;
 		$scope.name = null;
 		$scope.error = null;
+		$scope.show.region = true;
+		$scope.show.realm = false;
+		$scope.show.char = false;
 	}
 });
