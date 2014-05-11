@@ -4,7 +4,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Mai
 	$scope.taglineName = "WoW Community Web API";
 	$scope.taglineUrl = "https://github.com/Blizzard/api-wow-docs";
 
-	$scope.info = "Give your, region, Realm and character name, and I can show some cool info about your champion!";
+	$scope.info = "Give your region, realm and character name, and I can show some cool info about your champion!";
 
 	$scope.getRace = function(raceID) {
 		Main.getRaces($scope.region)
