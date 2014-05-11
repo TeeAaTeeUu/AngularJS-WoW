@@ -1,4 +1,4 @@
-<p>{{char.name}} has <b>{{ mounts.numCollected }}</b> mounts out of {{ mounts.numNotCollected + mounts.numCollected }} available.</p>
+<p>{{char.name}} has <b>{{ mounts.numCollected }}</b> mounts collected, dont have {{ mounts.numNotCollected }} of all available.</p>
 
 <div>
 	<div data-ng-repeat="mount in mounts.collected" ng-click="showMount(mount.creatureId)">
