@@ -1,3 +1,8 @@
-|ma|4h|opiskelua, testailua, init|
-|ma|4h|opiskelua, testailua, init|
-|ma|4h|opiskelua, testailua, init|
+| Päivä        | aika           | info  |
+| ------------- |:-------------:| -----:|
+| ma | right-aligned | $1600 |
+| ti | centered      |   $12 |
+| ma | right-aligned | $1600 |
+| ma | right-aligned | $1600 |
+| ma | right-aligned | $1600 |
+| ma | right-aligned | $1600 |
