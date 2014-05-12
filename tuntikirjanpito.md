@@ -6,5 +6,5 @@
 | to | 6h | teknistä hajoamista, paljon googlea |
 | pe | 6h | kun homma oli taas kasassa, copypaste tekniikalla muut välilehdet toimimaan |
 | su | 6h | paljon pientä säätöä, alkoi jo oppimaan toiminnan ja pystyi fiksaamaan pieniä "featureja" |
-| ------------- |:-------:| -----:|
+|---|---|---|
 | | 32h |  |
