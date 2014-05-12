@@ -6,7 +6,7 @@
 	<form ng-show="show.region">
 		<span>Select your region</span>
 		<select ng-model="region" ng-options="region.name for region in regions"></select>
-		<button type="submit" class="btn btn-primary" type="button" ng-click="selectregion(region); focus.realm=true">Select region</button>
+		<button type="submit" class="btn btn-primary" type="button" ng-click="selectregion(region); getRealms(region); focus.realm=true">Select region</button>
 		<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
 	</form>
 	<form data-ng-show="show.realm">
@@ -35,18 +35,6 @@
 	</form>
 </div>
 
-<div data-ng-show="char">
-
-	<p>Our <b>Level {{ char.level }}</b> Champion,<b data-ng-show="char.raceName">{{char.raceName}}</b> named
-		<b>{{ char.name }}</b> <span data-ng-show="char.side">from <b>{{char.side | capitalize}}</b></span> in realm <b>{{ char.realm }}</b><span data-ng-show="char.className"> is <b>{{char.className}}</b> and uses <b>{{char.powerType}}</b> as {{char.sexHas}} power</span>. This {{char.sex}} played last time at <b>{{char.lastModified | date:'MMMM d, y'}}</b> at <b>{{char.lastModified | date:'shortTime' | lowercase}}</b> (and that was <b>{{char.lastModified | date:'EEEE' | lowercase}}</b> by the way).
-	</p>
-
-	<button type="submit" class="btn btn-primary" type="button" data-ng-hide="char.raceName" data-ng-click="getRace(char.race)">Show Race</button>
-
-	<button type="submit" class="btn btn-primary" type="button" data-ng-hide="char.className" data-ng-click="getClass(char.class)">Show class</button>
-
-</div>
-
 <div data-ng-show="error">
 	<ul>
 		<li>{{ error }}</li>
@@ -55,4 +43,20 @@
 
 <div data-ng-hide="char.name">
 	<p>{{ info }}</p>
+</div>
+
+<div data-ng-repeat="realm in realms | filter:realm" data-ng-show="show.realm">
+	{{realm}}
+</div>
+
+<div data-ng-show="char">
+
+	<p>Our <b>Level {{ char.level }}</b> Champion,<b data-ng-show="char.raceName">{{char.raceName}}</b> named
+		<b>{{ char.name }}</b> <span data-ng-show="char.side">from <b>{{char.side | capitalize}}</b></span> in realm <b>{{ char.realm }}</b><span data-ng-show="char.className"> is <b>{{char.className}}</b> and uses <b>{{char.powerType}}</b> as {{char.sexHas}} power</span>. This {{char.sex}} played last time at <b>{{char.lastModified | date:'MMMM d, y'}}</b> at <b>{{char.lastModified | date:'shortTime' | lowercase}}</b> (and that was <b>{{char.lastModified | date:'EEEE' | lowercase}}</b> by the way).
+	</p>
+
+	<button type="submit" class="btn btn-primary" type="button" data-ng-hide="char.raceName" data-ng-click="getRace()">Show Race</button>
+
+	<button type="submit" class="btn btn-primary" type="button" data-ng-hide="char.className" data-ng-click="getClass()">Show class</button>
+
 </div>

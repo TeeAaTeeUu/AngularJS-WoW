@@ -6,12 +6,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Mai
 
 	$scope.info = "Give your region, realm and character name, and I can show some cool info about your champion!";
 
-	$scope.getRace = function(raceID) {
-		Main.getRaces($scope.region)
+	$scope.getRace = function() {
+		Main.getRaces($scope.region.value)
 				.success( function(data) {
         			var races = data.races;
         			for (var i = 0; i < races.length; i++) {
-        				if (angular.equals(races[i].id, raceID)) {
+        				if (angular.equals(races[i].id, $scope.char.race)) {
         					$scope.char.raceName = races[i].name;
         					$scope.char.side = races[i].side;
         					break;
@@ -20,12 +20,12 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, Mai
     			});
 	}
 
-	$scope.getClass = function(classID) {
-		Main.getClasses($scope.region)
+	$scope.getClass = function() {
+		Main.getClasses($scope.region.value)
 				.success( function(data) {
         			var classes = data.classes;
         			for (var i = 0; i < classes.length; i++) {
-        				if (angular.equals(classes[i].id, classID)) {
+        				if (angular.equals(classes[i].id, $scope.char.class)) {
         					$scope.char.className =classes[i].name;
         					$scope.char.powerType = classes[i].powerType;
         					break;

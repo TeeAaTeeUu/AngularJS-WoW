@@ -21,16 +21,33 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 	};
 
 	$scope.selectRealm = function(realm) {
-		$scope.realm = realm;
-		$scope.show.realm = false;
-		$scope.show.char = true;
+		if(realm && realm.length >= 3) {
+			$scope.realm = realm;
+			$scope.show.realm = false;
+			$scope.show.char = true;
+			$scope.error = null;
+		} else {
+			$scope.error = "You didn't give me realm. Why?";
+		}
+	};
+
+	$scope.getRealms = function() {
+		$scope.realms = [];
+
+		Global.getRealms($scope.region.value)
+		.success( function(data) {
+			angular.forEach(data.realms, function(value, key){
+				$scope.realms.push(value.name);
+			}, $scope.realms);
+		})
 	};
 
 	$scope.search = function(name) {
 		$scope.name = name;
-		if (name) {
+		if (name && name.length >= 2) {
 			Global.getChar($scope.region.value, $scope.realm, $scope.name)
 			.success( function(data) {
+
 				$scope.staticUrl = "http://" + $scope.region.value + ".battle.net/static-render/" + $scope.region.value + "/";
 				$scope.mediaUrl = "http://" + $scope.region.value + ".media.blizzard.com/wow/icons/56/";
 
