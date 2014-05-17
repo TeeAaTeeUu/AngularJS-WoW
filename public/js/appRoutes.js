@@ -8,17 +8,32 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			controller: 'MainController'
 		})
 
-		.when('/items', {
+		.when('/:region', {
+			templateUrl: 'views/home.html',
+			controller: 'MainController'
+		})
+
+		.when('/:region/:realm', {
+			templateUrl: 'views/home.html',
+			controller: 'MainController'
+		})
+
+		.when('/:region/:realm/:char', {
+			templateUrl: 'views/home.html',
+			controller: 'MainController'
+		})
+
+		.when('/:region/:realm/:char/items', {
 		 	templateUrl: 'views/items.html',
 		 	controller: 'ItemsController'
 		})
 
-		.when('/pets', {
+		.when('/:region/:realm/:char/pets', {
 			templateUrl: 'views/pets.html',
 			controller: 'PetsController'
 		})
 
-		.when('/mounts', {
+		.when('/:region/:realm/:char/mounts', {
 			templateUrl: 'views/mounts.html',
 			controller: 'MountsController'
 		});

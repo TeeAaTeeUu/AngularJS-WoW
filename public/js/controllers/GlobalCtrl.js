@@ -1,4 +1,4 @@
-angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, $location, Global) {
+angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, $location, $routeParams, Global) {
 
 	$scope.regions = [
 	{name:'US', value:'us'},
@@ -18,6 +18,7 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		$scope.region = region;
 		$scope.show.region = false;
 		$scope.show.realm = true;
+		$location.path($location.path() + region.value);
 	};
 
 	$scope.selectRealm = function(realm) {
@@ -26,6 +27,7 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 			$scope.show.realm = false;
 			$scope.show.char = true;
 			$scope.error = null;
+			$location.path($location.path() + "/" + realm);
 		} else {
 			$scope.error = "You didn't give me realm. Why?";
 		}
@@ -42,12 +44,27 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		})
 	};
 
-	$scope.search = function(name) {
+	$scope.searchUrl = function(region, realm, name) {
+		$scope.region.value = region;
+		$scope.realm = realm;
 		$scope.name = name;
-		if (name && name.length >= 2) {
+
+		$scope.searchOrig();
+	}
+
+	$scope.search = function(name) {
+		$location.path($location.path() + "/" + name);
+		$scope.name = name;
+		$scope.searchOrig();
+	}
+
+	$scope.searchOrig = function() {
+		if ($scope.name && $scope.name.length >= 2) {
 			Global.getChar($scope.region.value, $scope.realm, $scope.name)
 			.success( function(data) {
 				if(angular.isDefined(data.name)) {
+
+					$scope.url = $location.absUrl();
 
 					$scope.staticUrl = "http://" + $scope.region.value + ".battle.net/static-render/" + $scope.region.value + "/";
 					$scope.mediaUrl = "http://" + $scope.region.value + ".media.blizzard.com/wow/icons/56/";
@@ -63,11 +80,14 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 						$scope.char.sex = "female";
 						$scope.char.sexHas = "her";
 					}
+
+					$scope.ok = true;
 				} else {
 					$scope.error = "The Blizzard Community Platform API did not return any data for your character. This usually happens if you have not logged in to WoW at least once after a major patch."; //http://www.askmrrobot.com
 				}
 			})
-			.error( function() {
+			.error( function(data) {
+				console.log(data);
 				$scope.error = "We didn't find anything with given realm and character name, sorry!";
 			});
 		} else {

@@ -38,9 +38,9 @@
 				<a href="/"><img ng-src="{{ char.thumbnail }}"></a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="/items">items</a></li>
-				<li><a href="/pets">pets</a></li>
-				<li><a href="/mounts">mounts</a></li>
+				<li><a data-ng-href="{{url}}/items">items</a></li>
+				<li><a data-ng-href="{{url}}/pets">pets</a></li>
+				<li><a data-ng-href="{{url}}/mounts">mounts</a></li>
 			</ul>
 			<button type="reset" class="btn btn-danger" ng-click="clearSearch()">Clear</button>
 		</nav>
