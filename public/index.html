@@ -35,7 +35,7 @@
 		<!-- HEADER -->
 		<nav class="navbar navbar-inverse col-md-10 col-md-offset-1" data-ng-show="char.name">
 			<div class="navbar-header">
-				<a href="/"><img ng-src="{{ char.thumbnail }}"></a>
+				<a data-ng-href="{{url}}"><img ng-src="{{ char.thumbnail }}"></a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li><a data-ng-href="{{url}}/items">items</a></li>
