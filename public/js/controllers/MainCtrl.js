@@ -10,7 +10,11 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ro
 		if(angular.isDefined($routeParams.realm)) {
 			if(angular.isDefined($routeParams.char)) {
 				$scope.searchUrl($routeParams.region, $routeParams.realm, $routeParams.char);
+			} else {
+				$scope.selectRealmUrl($routeParams.region, $routeParams.realm);
 			}
+		} else {
+			$scope.selectregionUrl($routeParams.region);
 		}
 	};
 

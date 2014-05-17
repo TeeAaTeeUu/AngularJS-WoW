@@ -21,6 +21,12 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		$location.path($location.path() + region.value);
 	};
 
+	$scope.selectregionUrl = function(region) {
+		$scope.region.value = region;
+		$scope.show.region = false;
+		$scope.show.realm = true;
+	};
+
 	$scope.selectRealm = function(realm) {
 		if(realm && realm.length >= 3) {
 			$scope.realm = realm;
@@ -32,6 +38,18 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 			$scope.error = "You didn't give me realm. Why?";
 		}
 	};
+
+	$scope.selectRealmUrl = function(region, realm) {
+		$scope.selectregionUrl(region);
+		if(realm && realm.length >= 3) {
+			$scope.realm = realm;
+			$scope.show.realm = false;
+			$scope.show.char = true;
+			$scope.error = null;
+		} else {
+			$scope.error = "You didn't give me realm. Why?";
+		}
+	}
 
 	$scope.getRealms = function() {
 		$scope.realms = [];
