@@ -19,12 +19,18 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		$scope.show.region = false;
 		$scope.show.realm = true;
 		$location.path($location.path() + region.value);
+
+		$scope.getRealms(region);
+		$scope.focus.realm=true;
 	};
 
 	$scope.selectregionUrl = function(region) {
 		$scope.region.value = region;
 		$scope.show.region = false;
 		$scope.show.realm = true;
+
+		$scope.getRealms(region);
+		$scope.focus.realm=true;
 	};
 
 	$scope.selectRealm = function(realm) {
@@ -37,6 +43,8 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		} else {
 			$scope.error = "You didn't give me realm. Why?";
 		}
+
+		$scope.focus.name=true;
 	};
 
 	$scope.selectRealmUrl = function(region, realm) {
@@ -49,6 +57,8 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 		} else {
 			$scope.error = "You didn't give me realm. Why?";
 		}
+
+		$scope.focus.name=true;
 	}
 
 	$scope.getRealms = function() {
@@ -105,7 +115,6 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 				}
 			})
 			.error( function(data) {
-				console.log(data);
 				$scope.error = "We didn't find anything with given realm and character name, sorry!";
 			});
 		} else {
