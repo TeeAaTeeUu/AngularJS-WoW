@@ -1,7 +1,9 @@
-angular.module('ItemsCtrl', []).controller('ItemsController', function($scope, Items) {
+angular.module('ItemsCtrl', []).controller('ItemsController', function($scope, $routeParams, Items) {
 
 	$scope.items = {};
 	$scope.showItems = {};
+
+	$scope.getLocation($routeParams.region, $routeParams.realm, $routeParams.char);
 
 	$scope.getItems = function() {
 		Items.getItems($scope.region.value, $scope.realm, $scope.name)

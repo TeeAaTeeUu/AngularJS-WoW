@@ -1,9 +1,11 @@
-angular.module('MountsCtrl', []).controller('MountsController', function($scope, Mounts) {
+angular.module('MountsCtrl', []).controller('MountsController', function($scope, $routeParams, Mounts) {
 
 	$scope.mounts = {};
 	$scope.showMounts = {};
 
 	$scope.cant = "'t";
+
+	$scope.getLocation($routeParams.region, $routeParams.realm, $routeParams.char);
 
 	$scope.getMounts = function() {
 		Mounts.getMounts($scope.region.value, $scope.realm, $scope.name)

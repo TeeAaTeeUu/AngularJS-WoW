@@ -1,4 +1,4 @@
-angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, $location, $routeParams, Global) {
+angular.module('GlobalCtrl', []).controller('GlobalController', function($scope, $location, Global) {
 
 	$scope.regions = [
 	{name:'US', value:'us'},
@@ -13,6 +13,20 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 	$scope.show.region = true;
 
 	$scope.region = $scope.regions[1];
+
+	$scope.getLocation = function(region, realm, char) {
+		if(!angular.equals($scope.ok, true) && angular.isDefined(region)) {
+		if(angular.isDefined(realm)) {
+			if(angular.isDefined(char)) {
+				$scope.searchUrl(region, realm, char);
+			} else {
+				$scope.selectRealmUrl(region, realm);
+			}
+		} else {
+			$scope.selectregionUrl(region);
+		}
+	}
+	}
 
 	$scope.selectregion = function(region) {
 		$scope.region = region;
@@ -92,7 +106,7 @@ angular.module('GlobalCtrl', []).controller('GlobalController', function($scope,
 			.success( function(data) {
 				if(angular.isDefined(data.name)) {
 
-					$scope.url = $location.absUrl();
+					$scope.url = "/" + $scope.region.value + "/" + $scope.realm + "/" + $scope.name;
 
 					$scope.staticUrl = "http://" + $scope.region.value + ".battle.net/static-render/" + $scope.region.value + "/";
 					$scope.mediaUrl = "http://" + $scope.region.value + ".media.blizzard.com/wow/icons/56/";

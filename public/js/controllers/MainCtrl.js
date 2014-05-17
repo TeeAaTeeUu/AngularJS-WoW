@@ -1,4 +1,4 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope, $routeParams, $location, Main) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, $routeParams, Main) {
 
 	$scope.tagline = "Testing how AngularJS works with";
 	$scope.taglineName = "WoW Community Web API";
@@ -6,17 +6,7 @@ angular.module('MainCtrl', []).controller('MainController', function($scope, $ro
 
 	$scope.info = "Give your region, realm and character name, and I can show some cool info about your champion!";
 
-	if(!angular.equals($scope.ok, true) && angular.isDefined($routeParams.region)) {
-		if(angular.isDefined($routeParams.realm)) {
-			if(angular.isDefined($routeParams.char)) {
-				$scope.searchUrl($routeParams.region, $routeParams.realm, $routeParams.char);
-			} else {
-				$scope.selectRealmUrl($routeParams.region, $routeParams.realm);
-			}
-		} else {
-			$scope.selectregionUrl($routeParams.region);
-		}
-	};
+	$scope.getLocation($routeParams.region, $routeParams.realm, $routeParams.char);
 
 	$scope.getRace = function() {
 		Main.getRaces($scope.region.value)
