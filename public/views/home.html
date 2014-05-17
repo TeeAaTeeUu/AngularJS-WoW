@@ -20,6 +20,10 @@
 				</span>
 			</div><!-- /input-group -->
 		</div>
+		<select ui-select2 ng-model="realm" data-placeholder="Choose your realm">
+			<option value=""></option>
+			<option data-ng-repeat="realmi in realms | filter:realm" value="{{realmi}}">{{realmi}}</option>
+		</select>
 	</form>
 	<form data-ng-show="show.char">
 		<div class="form-group">
@@ -43,10 +47,6 @@
 
 <div data-ng-hide="char.name">
 	<p>{{ info }}</p>
-</div>
-
-<div data-ng-repeat="realmi in realms | filter:realm" data-ng-show="show.realm">
-	{{realmi}}
 </div>
 
 <div data-ng-show="char">
