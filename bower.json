@@ -5,7 +5,7 @@
 		"bootstrap": "latest",
 		"angular": "latest",
 		"angular-route": "latest",
-		"angular-cookies" : "latest",
+		"ngstorage" : "latest",
 		"angular-ui-select2" : "latest",
 		"angular-loading-bar" : "latest",
 		"angular-animate" : "latest"

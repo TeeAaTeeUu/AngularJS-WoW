@@ -1,6 +1,6 @@
 angular.module('AngularJS-WoW',
 	['ngRoute',
-	'ngCookies',
+	'ngStorage',
 	'ui.select2',
 	'angular-loading-bar',
 	'ngAnimate',

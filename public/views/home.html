@@ -20,9 +20,9 @@
 				</span>
 			</div><!-- /input-group -->
 		</div>
-		<select ui-select2 ng-model="realm" data-placeholder="Choose your realm">
+		<select ui-select2 ng-model="realm" data-placeholder="Choose your realm" style="width: 300px;">
 			<option value=""></option>
-			<option data-ng-repeat="realmi in realms | filter:realm" value="{{realmi}}">{{realmi}}</option>
+			<option data-ng-repeat="realmi in realms" value="{{realmi}}">{{realmi}}</option>
 		</select>
 	</form>
 	<form data-ng-show="show.char">
